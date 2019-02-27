@@ -1,0 +1,15 @@
+# example of a docker compose file for wp + mysql
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+      volumes:
+        - /data/mysql:/var/lib/mysql
+  web:
+    image: "wordpress"
+    ports:
+      - "8080:80"
+    environment:
+            - WORDPRESS_DB_PASSWORD=password

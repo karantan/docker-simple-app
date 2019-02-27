@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    image: karantan/simple-web-app
+    ports:
+      - 6543:6543
+
+  database:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - /Users/karantan/work/k8s/docker/docker-compose/mysql:/var/lib/mysql
