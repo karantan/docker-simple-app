@@ -1,7 +1,13 @@
-FROM python
+FROM python:3.6-stretch
 
-RUN pip install pyramid
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-COPY app.py /opt/app.py
+WORKDIR /app
 
-ENTRYPOINT python /opt/app.py
+RUN pip install pipenv
+RUN pipenv install Flask
+ENV FLASK_APP app.py
+env FLASK_ENV development
+
+EXPOSE 5000
