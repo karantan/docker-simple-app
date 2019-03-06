@@ -8,6 +8,6 @@ WORKDIR /app
 RUN pip install pipenv
 RUN pipenv install Flask
 ENV FLASK_APP app.py
-env FLASK_ENV development
+ENV FLASK_ENV development
 
 EXPOSE 5000
